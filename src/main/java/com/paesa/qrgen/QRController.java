@@ -30,7 +30,6 @@ public class QRController {
         final byte[] bytes = baos.toByteArray();
         baos.close();
 
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
-                .body(bytes);
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
 }
