@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-    
-    public static Logger log = new Logger();
 
     @GetMapping("/qr")
     public ResponseEntity<byte[]> generateFromVar(
@@ -31,8 +29,7 @@ public class Controller {
         baos.flush();
         final byte[] bytes = baos.toByteArray();
         baos.close();
-        
-        log.Log(data);
+
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
 }
