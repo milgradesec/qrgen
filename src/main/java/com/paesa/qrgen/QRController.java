@@ -22,7 +22,7 @@ public class QRController {
             @RequestParam(value = "data", defaultValue = "Example") final String data)
             throws IOException, WriterException {
 
-        final BufferedImage bimg = QRGenerator.createQRImage(data, 500);
+        final BufferedImage bimg = QRGenerator.createQRImage(data, 400);
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         ImageIO.write(bimg, "jpg", baos);
