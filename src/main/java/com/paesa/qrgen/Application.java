@@ -4,9 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QRApplication {
-
+public class Application {
 	public static void main(final String[] args) {
-		SpringApplication.run(QRApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
