@@ -25,7 +25,6 @@ public class QRGenerator {
 
         final int matrixWidth = byteMatrix.getWidth();
         final BufferedImage image = new BufferedImage(matrixWidth, matrixWidth, BufferedImage.TYPE_INT_RGB);
-        image.createGraphics();
 
         final Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.WHITE);
