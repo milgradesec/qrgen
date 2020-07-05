@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class QRController {
 
-    @GetMapping(value = "/qr")
-    public ResponseEntity<byte[]> generate(@RequestParam(value = "data", defaultValue = "Example") final String data,
-            @RequestParam(value = "size", defaultValue = "500") final String size) throws IOException, WriterException {
+    @GetMapping("/qr")
+    public ResponseEntity<byte[]> generateFromVar(
+            @RequestParam(value = "data", defaultValue = "Example") final String data)
+            throws IOException, WriterException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(data, 500);
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -29,7 +30,7 @@ public class QRController {
         final byte[] bytes = baos.toByteArray();
         baos.close();
 
-        return ResponseEntity.ok().header("Cache-Control", "public, max-age=86400").contentType(MediaType.IMAGE_JPEG)
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
                 .body(bytes);
     }
 }
