@@ -1,4 +1,4 @@
 .PHONY: release
 release:
 	gradlew build
-	docker.exe buildx build --platform linux/arm64 . -t milgradesec/qrgen:latest --push
+	docker.exe buildx build --platform linux/arm/v7 . -t milgradesec/qrgen:latest --push
