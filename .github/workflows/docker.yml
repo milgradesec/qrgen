@@ -1,8 +1,6 @@
 name: Docker
 
 on:
-  pull_request:
-    branches: [master]
   push:
     branches: [master]
 
@@ -20,7 +18,12 @@ jobs:
           buildx-version: latest
           qemu-version: latest
 
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: Build
         run: |
           docker buildx build -f exp.Dockerfile \ 
-            --platform linux/amd64,linux/arm64 .
+            --platform linux/amd64,linux/arm64 . \
+            --tag milgradesec/qrgen:latest \
+            --push
