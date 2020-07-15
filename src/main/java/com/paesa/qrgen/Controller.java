@@ -11,6 +11,8 @@ import com.google.zxing.WriterException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +32,20 @@ public class Controller {
         final byte[] bytes = baos.toByteArray();
         baos.close();
 
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
+    }
+
+    @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
+    public ResponseEntity<byte[]> generateFromJSON(@RequestBody Request request)
+            throws WriterException, IOException {
+
+        final BufferedImage bimg = QRGenerator.createQRImage(request.getData(), 400);
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        ImageIO.write(bimg, "jpg", baos);
+        baos.flush();
+        final byte[] bytes = baos.toByteArray();
+        baos.close();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
 }
