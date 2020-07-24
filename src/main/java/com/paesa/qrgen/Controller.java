@@ -25,12 +25,12 @@ public class Controller {
             throws IOException, WriterException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(data, 400);
-        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final byte[] bytes;
 
-        ImageIO.write(bimg, "jpg", baos);
-        baos.flush();
-        final byte[] bytes = baos.toByteArray();
-        baos.close();
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            ImageIO.write(bimg, "jpg", baos);
+            bytes = baos.toByteArray();
+        }
 
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
@@ -40,12 +40,12 @@ public class Controller {
             throws WriterException, IOException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(request.getData(), 400);
-        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final byte[] bytes;
 
-        ImageIO.write(bimg, "jpg", baos);
-        baos.flush();
-        final byte[] bytes = baos.toByteArray();
-        baos.close();
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            ImageIO.write(bimg, "jpg", baos);
+            bytes = baos.toByteArray();
+        }
 
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
