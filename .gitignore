@@ -14,12 +14,17 @@ build/
 .springBeans
 .sts4-cache
 
-### Java ###
+### Compiled class Files ###
 *.class
+
+### Package Files ###
 *.jar
 *.war
-*.ear
 *.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
 ### IntelliJ IDEA ###
 .idea
