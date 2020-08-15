@@ -8,8 +8,6 @@ import javax.imageio.ImageIO;
 
 import com.google.zxing.WriterException;
 
-import io.prometheus.client.Counter;
-
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller {
-
-    static final Counter requests = Counter.build().name("requests_total").help("Total requests.").register();
 
     @GetMapping("/qr")
     public ResponseEntity<byte[]> generateFromVar(
@@ -35,8 +31,6 @@ public class Controller {
             ImageIO.write(bimg, "jpg", baos);
             bytes = baos.toByteArray();
         }
-
-        requests.inc();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
 
@@ -51,8 +45,6 @@ public class Controller {
             ImageIO.write(bimg, "jpg", baos);
             bytes = baos.toByteArray();
         }
-
-        requests.inc();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
     }
 }
