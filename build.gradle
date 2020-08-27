@@ -29,10 +29,6 @@ dependencies {
 	implementation 'io.micrometer:micrometer-registry-prometheus:1.5.4'
 }
 
-test {
-	useJUnitPlatform()
-}
-
 jacocoTestReport {
     reports {
         xml.enabled true
