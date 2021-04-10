@@ -8,8 +8,6 @@ plugins {
 group = 'com.paesa'
 version = '0.0.1-SNAPSHOT'
 
-sourceCompatibility = '14'
-
 repositories {
 	mavenCentral()
 }
@@ -35,5 +33,4 @@ jacocoTestReport {
         html.enabled false
     }
 }
-
 check.dependsOn jacocoTestReport
