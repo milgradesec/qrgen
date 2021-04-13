@@ -15,14 +15,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
+	implementation 'com.google.zxing:core:3.4.1'
+	implementation 'io.micrometer:micrometer-registry-prometheus:1.6.5'
+	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-
-	// https://mvnrepository.com/artifact/com.google.zxing/core
-	implementation 'com.google.zxing:core:3.4.1'
-
-	// https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus
-	implementation 'io.micrometer:micrometer-registry-prometheus:1.6.5'
 }
