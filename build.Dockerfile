@@ -1,10 +1,11 @@
 FROM --platform=amd64 gradle:jdk15 AS builder
 
-COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build --no-daemon 
+COPY --chown=gradle:gradle . /home/gradle/src
 
-FROM openjdk:16-slim
+RUN gradle build --no-daemon
+
+FROM openjdk:15-slim
 
 VOLUME /tmp
 ARG JAVA_OPTS
