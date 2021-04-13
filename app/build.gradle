@@ -8,9 +8,6 @@ group = 'com.paesa'
 version = '0.0.1-SNAPSHOT'
 
 repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
-    // Use MavenCentral for resolving dependencies.
     mavenCentral()
 }
 
