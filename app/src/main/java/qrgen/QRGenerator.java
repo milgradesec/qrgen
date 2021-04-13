@@ -1,4 +1,4 @@
-package com.paesa.qrgen;
+package qrgen;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

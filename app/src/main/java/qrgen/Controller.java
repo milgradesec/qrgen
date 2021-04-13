@@ -1,4 +1,4 @@
-package com.paesa.qrgen;
+package qrgen;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;

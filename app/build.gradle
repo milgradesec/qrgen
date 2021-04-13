@@ -1,10 +1,11 @@
 plugins {
+    id 'application'
 	id 'java'
 	id 'org.springframework.boot' version '2.3.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
-group = 'com.paesa'
+mainClassName = 'qrgen.Application'
 version = '0.0.1-SNAPSHOT'
 
 repositories {

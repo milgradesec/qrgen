@@ -1,4 +1,4 @@
-package com.paesa.qrgen;
+package qrgen;
 
 public class RequestModel {
     private String data;
