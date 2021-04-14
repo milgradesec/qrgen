@@ -5,7 +5,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build --no-daemon
 
-FROM openjdk:15-alpine
+FROM openjdk:15-slim
 
 ARG JAVA_OPTS
 ENV JAVA_OPTS=$JAVA_OPTS
