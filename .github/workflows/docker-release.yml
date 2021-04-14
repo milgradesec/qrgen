@@ -1,0 +1,32 @@
+name: Docker Build and Push
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set env
+        run: echo TAG=${GITHUB_REF#refs/*/} >> $GITHUB_ENV
+
+      - name: Docker Setup Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push
+        run: |
+          docker buildx build -f build.Dockerfile --platform linux/amd64 . --tag milgradesec/qrgen:amd64 --push
+          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag milgradesec/qrgen:arm64 --push
+          docker manifest create milgradesec/qrgen:$TAG milgradesec/qrgen:arm64 milgradesec/qrgen:amd64
+          docker manifest create milgradesec/qrgen:latest milgradesec/qrgen:arm64 milgradesec/qrgen:amd64
+          docker manifest push --purge milgradesec/qrgen:$TAG
+          docker manifest push --purge milgradesec/qrgen:latest
