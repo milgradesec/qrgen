@@ -10,7 +10,6 @@ FROM openjdk:15-alpine
 ARG JAVA_OPTS
 ENV JAVA_OPTS=$JAVA_OPTS
 
-VOLUME /tmp
 COPY --from=builder /home/gradle/src/app/build/libs/*.jar qrgen.jar
 
 EXPOSE 8080
