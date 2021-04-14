@@ -1,7 +1,7 @@
 FROM --platform=amd64 gradle:jdk15 AS builder
 
-COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build --no-daemon
 
