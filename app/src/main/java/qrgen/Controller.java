@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
+    private static final String DEFAULT_QR_VALUE = "https://blog.paesa.es/";
+
     @GetMapping("/qr")
     public ResponseEntity<byte[]> generateFromVar(
-            @RequestParam(value = "data", defaultValue = "Example") final String data)
+            @RequestParam(value = "data", defaultValue = DEFAULT_QR_VALUE) final String data)
             throws IOException, WriterException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(data, 400);
