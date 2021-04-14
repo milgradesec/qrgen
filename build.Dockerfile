@@ -5,7 +5,7 @@ WORKDIR /home/gradle/src
 
 RUN gradle build --no-daemon
 
-FROM openjdk:15-slim
+FROM openjdk:15-alpine
 
 ARG JAVA_OPTS
 ENV JAVA_OPTS=$JAVA_OPTS
