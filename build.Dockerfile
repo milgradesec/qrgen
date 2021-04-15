@@ -8,7 +8,7 @@ RUN gradle build --no-daemon
 FROM openjdk:15-slim
 
 RUN adduser --system --no-create-home spring
-USER spring:spring
+USER spring
 
 COPY --from=builder /home/gradle/src/app/build/libs/*.jar qrgen.jar
 
