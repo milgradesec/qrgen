@@ -1,6 +1,6 @@
 FROM openjdk:15-slim
 
-RUN addgroup --system spring && adduser --system --no-create-home spring -G spring
+RUN addgroup --system spring && adduser --system --no-create-home spring --group spring
 USER spring:spring
 
 ADD build/libs/qrgen-*-SNAPSHOT.jar qrgen.jar
