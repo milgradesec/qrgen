@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  qrgen:
+    image: milgradesec/qrgen:v0.0.2
+    read_only: true
+    networks:
+      - traefik_network
+    volumes:
+      - type: tmpfs
+        target: /tmp
+    logging:
+      options:
+        max-size: 1MB
+    cap_drop:
+      - ALL
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.qrgen.entryPoints=https
+        - traefik.http.routers.qrgen.rule=Host("qrcode.paesa.es")
+        - traefik.http.routers.qrgen.service=qrgen-service
+        - traefik.http.routers.qrgen.tls=true
+        - traefik.http.routers.qrgen.tls.options=cloudflare-mtls@file
+        - traefik.http.services.qrgen-service.loadbalancer.server.port=8080
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 1
+
+networks:
+  traefik_network:
+    external: true
