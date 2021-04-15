@@ -7,7 +7,7 @@ RUN gradle build --no-daemon
 
 FROM openjdk:15-slim
 
-COPY --from=builder /home/gradle/src/app/build/libs/qrgen-*-SNAPSHOT.jar qrgen.jar
+COPY --from=builder /home/gradle/src/app/build/libs/*.jar qrgen.jar
 
 EXPOSE 8080
 ENTRYPOINT exec java -jar qrgen.jar
