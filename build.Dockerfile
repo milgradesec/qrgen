@@ -7,10 +7,7 @@ RUN gradle build --no-daemon
 
 FROM openjdk:15-slim
 
-ARG JAVA_OPTS
-ENV JAVA_OPTS=$JAVA_OPTS
-
-COPY --from=builder /home/gradle/src/app/build/libs/*.jar qrgen.jar
+COPY --from=builder /home/gradle/src/app/build/libs/qrgen-*-SNAPSHOT qrgen.jar
 
 EXPOSE 8080
-ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar qrgen.jar
+ENTRYPOINT exec java -jar qrgen.jar
