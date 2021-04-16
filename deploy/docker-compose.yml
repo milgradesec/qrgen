@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   qrgen:
-    image: milgradesec/qrgen:v0.0.5
+    image: milgradesec/qrgen:${TAG}
     read_only: true
     networks:
       - traefik_network
