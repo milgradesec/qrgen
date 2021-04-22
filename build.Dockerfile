@@ -1,11 +1,11 @@
-FROM --platform=amd64 gradle:jdk15 AS builder
+FROM --platform=amd64 gradle:jdk16 AS builder
 
 WORKDIR /home/gradle/src
 COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build --no-daemon
 
-FROM openjdk:15-slim
+FROM openjdk:16-slim
 
 RUN adduser --system --no-create-home spring
 USER spring

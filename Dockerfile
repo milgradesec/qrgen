@@ -1,4 +1,4 @@
-FROM openjdk:15-slim
+FROM openjdk:16-slim
 
 RUN adduser --system --no-create-home spring
 USER spring
