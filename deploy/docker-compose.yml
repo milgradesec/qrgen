@@ -23,6 +23,7 @@ services:
         - traefik.http.routers.qrgen.tls=true
         - traefik.http.routers.qrgen.tls.options=cloudflare-mtls@file
         - traefik.http.services.qrgen-service.loadbalancer.server.port=8080
+        - traefik.http.services.qrgen-service.loadbalancer.healthCheck.path=/health
       restart_policy:
         condition: on-failure
         delay: 5s
