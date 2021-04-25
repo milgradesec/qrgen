@@ -35,7 +35,7 @@ public class QRGeneratorController {
     }
 
     @GetMapping("/qr")
-    public ResponseEntity<byte[]> generateFromVar(
+    public ResponseEntity<byte[]> getFromVar(
             @RequestParam(value = "data", defaultValue = DEFAULT_QR_VALUE) final String data)
             throws IOException, WriterException {
 
@@ -50,7 +50,7 @@ public class QRGeneratorController {
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
-    public ResponseEntity<byte[]> generateFromJSON(@RequestBody final RequestModel request)
+    public ResponseEntity<byte[]> getFromJSON(@RequestBody final RequestModel request)
             throws WriterException, IOException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(request.getData(), 400);
