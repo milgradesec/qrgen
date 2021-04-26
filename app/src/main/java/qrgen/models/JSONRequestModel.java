@@ -1,6 +1,6 @@
 package qrgen.models;
 
-public class RequestModel {
+public class JSONRequestModel {
     private String data;
 
     public String getData() {

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import qrgen.QRGenerator;
-import qrgen.models.RequestModel;
+import qrgen.models.JSONRequestModel;
 
 @RestController
 public class QRGeneratorController {
@@ -40,7 +40,7 @@ public class QRGeneratorController {
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
-    public ResponseEntity<byte[]> getFromJSON(@RequestBody final RequestModel request)
+    public ResponseEntity<byte[]> getFromJSON(@RequestBody final JSONRequestModel request)
             throws WriterException, IOException {
 
         final BufferedImage bimg = QRGenerator.createQRImage(request.getData(), 400);
