@@ -8,16 +8,13 @@ import javax.imageio.ImageIO;
 
 import com.google.zxing.WriterException;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.view.RedirectView;
 
 import qrgen.QRGenerator;
 import qrgen.models.RequestModel;
@@ -26,13 +23,6 @@ import qrgen.models.RequestModel;
 public class QRGeneratorController {
 
     private static final String DEFAULT_QR_VALUE = "https://blog.paesa.es/";
-
-    @RequestMapping("/")
-    public RedirectView homeHandler() {
-        RedirectView rv = new RedirectView("/qr");
-        rv.setStatusCode(HttpStatus.FOUND);
-        return rv;
-    }
 
     @GetMapping("/qr")
     public ResponseEntity<byte[]> getFromVar(
