@@ -5,7 +5,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build --no-daemon
 
-FROM openjdk:16-slim
+FROM openjdk:16.0.1
 
 RUN adduser --system --no-create-home spring
 USER spring
