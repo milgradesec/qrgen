@@ -14,6 +14,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 public class QRGenerator {
+
     public static BufferedImage createQRImage(final String qrCodeText, final int size)
             throws WriterException, IOException {
 
