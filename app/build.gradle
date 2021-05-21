@@ -6,7 +6,7 @@ plugins {
 }
 
 mainClassName = 'qrgen.Application'
-version = '0.0.7-SNAPSHOT'
+version = '0.0.8-SNAPSHOT'
 
 repositories {
     mavenCentral()
