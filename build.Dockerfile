@@ -10,7 +10,7 @@ FROM openjdk:16.0.1
 RUN adduser --system --no-create-home spring
 USER spring
 
-COPY --from=builder /home/gradle/src/app/build/libs/*.jar qrgen.jar
+COPY --from=builder /home/gradle/src/app/build/libs/*SNAPSHOT.jar qrgen.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "qrgen.jar"]
