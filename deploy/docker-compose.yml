@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   qrgen:
-    image: milgradesec/qrgen:${TAG}
+    image: milgradesec/qrgen:latest
     read_only: true
     networks:
       - ingress_network
