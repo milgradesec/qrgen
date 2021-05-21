@@ -5,7 +5,7 @@ services:
     image: milgradesec/qrgen:${TAG}
     read_only: true
     networks:
-      - traefik_network
+      - ingress_network
     volumes:
       - type: tmpfs
         target: /tmp
@@ -30,5 +30,5 @@ services:
         max_attempts: 5
 
 networks:
-  traefik_network:
+  ingress_network:
     external: true
