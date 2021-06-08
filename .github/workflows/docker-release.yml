@@ -24,9 +24,4 @@ jobs:
 
       - name: Build and Push
         run: |
-          docker buildx build -f build.Dockerfile --platform linux/amd64 . --tag ghcr.io/milgradesec/qrgen:amd64 --push
-          docker buildx build -f build.Dockerfile --platform linux/arm64 . --tag ghcr.io/milgradesec/qrgen:arm64 --push
-          docker manifest create ghcr.io/milgradesec/qrgen:$TAG ghcr.io/milgradesec/qrgen:arm64 ghcr.io/milgradesec/qrgen:amd64
-          docker manifest create ghcr.io/milgradesec/qrgen:latest ghcr.io/milgradesec/qrgen:arm64 ghcr.io/milgradesec/qrgen:amd64
-          docker manifest push --purge ghcr.io/milgradesec/qrgen:latest
-          docker manifest push --purge ghcr.io/milgradesec/qrgen:$TAG
+          docker buildx build -f build.Dockerfile --platform linux/arm64 . ghcr.io/milgradesec/qrgen:$TAG --tag ghcr.io/milgradesec/qrgen:latest --push
