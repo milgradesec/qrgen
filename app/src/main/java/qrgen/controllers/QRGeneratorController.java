@@ -3,11 +3,13 @@ package qrgen.controllers;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
 import com.google.zxing.WriterException;
 
+import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +38,9 @@ public class QRGeneratorController {
             ImageIO.write(bimg, "jpg", baos);
             bytes = baos.toByteArray();
         }
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
+
+        CacheControl cacheControl = CacheControl.maxAge(30, TimeUnit.DAYS).cachePublic();
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).cacheControl(cacheControl).body(bytes);
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
@@ -50,6 +54,8 @@ public class QRGeneratorController {
             ImageIO.write(bimg, "jpg", baos);
             bytes = baos.toByteArray();
         }
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(bytes);
+
+        CacheControl cacheControl = CacheControl.maxAge(30, TimeUnit.DAYS).cachePublic();
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).cacheControl(cacheControl).body(bytes);
     }
 }
