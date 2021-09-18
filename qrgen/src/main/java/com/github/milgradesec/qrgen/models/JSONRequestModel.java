@@ -1,4 +1,4 @@
-package qrgen.models;
+package com.github.milgradesec.qrgen.models;
 
 public class JSONRequestModel {
 

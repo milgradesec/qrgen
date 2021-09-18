@@ -1,4 +1,4 @@
-package qrgen.controllers;
+package com.github.milgradesec.qrgen.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

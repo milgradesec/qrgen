@@ -1,4 +1,4 @@
-package qrgen.controllers;
+package com.github.milgradesec.qrgen.controllers;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import qrgen.QRGenerator;
-import qrgen.models.JSONRequestModel;
+import com.github.milgradesec.qrgen.QRGenerator;
+import com.github.milgradesec.qrgen.models.JSONRequestModel;
 
 @RestController
 public class QRGeneratorController {

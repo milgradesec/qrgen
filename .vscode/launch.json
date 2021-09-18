@@ -15,7 +15,7 @@
       "name": "Launch Application",
       "request": "launch",
       "projectName": "qrgen-qrgen",
-      "mainClass": "qrgen.Application"
+      "mainClass": "com.github.milgradesec.qrgen.Application"
     }
   ]
 }

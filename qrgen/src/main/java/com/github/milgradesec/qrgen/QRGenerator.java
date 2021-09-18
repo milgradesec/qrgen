@@ -1,4 +1,4 @@
-package qrgen;
+package com.github.milgradesec.qrgen;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
