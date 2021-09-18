@@ -18,7 +18,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 public class QRGenerator {
 
-    public static BufferedImage createQRImage(String data, int size) throws WriterException, IOException {
+    public static BufferedImage createQRImage(final String data, final int size) throws WriterException, IOException {
         Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<>();
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 
@@ -43,7 +43,8 @@ public class QRGenerator {
         return image;
     }
 
-    public static byte[] generateFromString(String data, int size, String format) throws IOException, WriterException {
+    public static byte[] generateFromString(final String data, final int size, String format)
+            throws IOException, WriterException {
         BufferedImage bimg = createQRImage(data, size);
 
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
