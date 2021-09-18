@@ -8,9 +8,10 @@ RUN gradle build --no-daemon
 FROM openjdk:16.0.2
 
 RUN adduser --system --no-create-home spring
-USER spring
 
 COPY --from=builder /home/gradle/src/app/build/libs/*SNAPSHOT.jar qrgen.jar
 
 EXPOSE 8080
+
+USER spring
 ENTRYPOINT ["java", "-jar", "qrgen.jar"]
