@@ -1,7 +1,10 @@
 VERSION := $(shell git describe --tags --always --abbrev=0)
 
 build:
-	./gradlew build
+	.\gradlew build
+
+clean: 
+	.\gradlew clean
 
 docker:
 	docker build . -f build.Dockerfile
