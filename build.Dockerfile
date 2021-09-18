@@ -9,7 +9,7 @@ FROM openjdk:16.0.2
 
 RUN adduser --system --no-create-home spring
 
-COPY --from=builder /home/gradle/src/qrgen/build/libs/*SNAPSHOT.jar qrgen.jar
+COPY --from=builder /home/gradle/src/server/build/libs/*SNAPSHOT.jar qrgen.jar
 
 EXPOSE 8080
 
