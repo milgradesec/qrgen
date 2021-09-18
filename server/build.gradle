@@ -7,7 +7,7 @@ plugins {
 
 mainClassName = 'com.github.milgradesec.qrgen.Application'
 
-version = '1.0.3-SNAPSHOT'
+version = '1.0.4-SNAPSHOT'
 
 repositories {
     mavenCentral()
