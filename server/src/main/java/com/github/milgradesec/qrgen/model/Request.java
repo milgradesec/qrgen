@@ -1,6 +1,6 @@
-package com.github.milgradesec.qrgen.models;
+package com.github.milgradesec.qrgen.model;
 
-public class JSONRequestModel {
+public class Request {
 
     private String data;
 

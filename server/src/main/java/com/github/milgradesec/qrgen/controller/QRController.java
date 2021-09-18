@@ -1,9 +1,9 @@
-package com.github.milgradesec.qrgen.controllers;
+package com.github.milgradesec.qrgen.controller;
 
 import java.io.IOException;
 
 import com.github.milgradesec.qrgen.QRGenerator;
-import com.github.milgradesec.qrgen.models.JSONRequestModel;
+import com.github.milgradesec.qrgen.model.Request;
 import com.google.zxing.WriterException;
 
 import org.springframework.http.MediaType;
@@ -30,8 +30,7 @@ public class QRController {
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
-    public ResponseEntity<byte[]> getFromJSON(@RequestBody JSONRequestModel request)
-            throws WriterException, IOException {
+    public ResponseEntity<byte[]> getFromJSON(@RequestBody Request request) throws WriterException, IOException {
 
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
                 .body(QRGenerator.generateFromString(request.getData(), DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT));

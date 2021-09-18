@@ -1,4 +1,4 @@
-package com.github.milgradesec.qrgen.controllers;
+package com.github.milgradesec.qrgen.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
