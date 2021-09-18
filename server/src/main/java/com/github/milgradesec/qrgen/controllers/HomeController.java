@@ -12,6 +12,7 @@ public class HomeController {
     public RedirectView homeHandler() {
         RedirectView rv = new RedirectView("/qr");
         rv.setStatusCode(HttpStatus.FOUND);
+
         return rv;
     }
 }

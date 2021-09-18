@@ -25,17 +25,15 @@ public class QRController {
     public ResponseEntity<byte[]> getFromVar(@RequestParam(value = "data", defaultValue = DEFAULT_QR_VALUE) String data)
             throws IOException, WriterException {
 
-        byte[] buf = QRGenerator.generateFromString(data, DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT);
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(buf);
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                .body(QRGenerator.generateFromString(data, DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT));
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
     public ResponseEntity<byte[]> getFromJSON(@RequestBody JSONRequestModel request)
             throws WriterException, IOException {
 
-        byte[] buf = QRGenerator.generateFromString(request.getData(), DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT);
-
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(buf);
+        return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
+                .body(QRGenerator.generateFromString(request.getData(), DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT));
     }
 }
