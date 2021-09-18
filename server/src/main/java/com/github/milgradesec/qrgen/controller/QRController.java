@@ -22,11 +22,14 @@ public class QRController {
     private static final String DEFAULT_IMAGE_FORMAT = "jpg";
 
     @GetMapping("/qr")
-    public ResponseEntity<byte[]> getFromVar(@RequestParam(value = "data", defaultValue = DEFAULT_QR_VALUE) String data)
-            throws IOException, WriterException {
+    public ResponseEntity<byte[]> getFromVar(@RequestParam(name = "data", defaultValue = DEFAULT_QR_VALUE) String data,
+            @RequestParam(name = "size", required = false) Integer size) throws IOException, WriterException {
 
+        if (size == null) {
+            size = DEFAULT_IMAGE_SIZE;
+        }
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG)
-                .body(QRGenerator.generateFromString(data, DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_FORMAT));
+                .body(QRGenerator.generateFromString(data, size, DEFAULT_IMAGE_FORMAT));
     }
 
     @PostMapping(path = "/qr", consumes = "application/json", produces = "image/jpeg")
