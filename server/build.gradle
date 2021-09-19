@@ -5,7 +5,10 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-mainClassName = 'com.github.milgradesec.qrgen.Application'
+application {
+    mainClass = 'com.github.milgradesec.qrgen.Application'
+}
+
 
 version = '1.0.4-SNAPSHOT'
 
