@@ -8,8 +8,6 @@ application {
     mainClass = 'com.github.milgradesec.qrgen.Application'
 }
 
-version = '1.0.4-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
