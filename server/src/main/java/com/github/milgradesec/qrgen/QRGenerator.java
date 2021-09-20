@@ -43,7 +43,7 @@ public class QRGenerator {
         return image;
     }
 
-    public static byte[] generateFromString(final String data, final int size, String format)
+    public static byte[] generateFromString(final String data, final int size, final String format)
             throws IOException, WriterException {
         BufferedImage bimg = createQRImage(data, size);
 
