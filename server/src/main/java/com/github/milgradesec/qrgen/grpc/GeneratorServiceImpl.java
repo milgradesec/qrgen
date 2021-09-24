@@ -1,5 +1,7 @@
 package com.github.milgradesec.qrgen.grpc;
 
+import io.grpc.stub.StreamObserver;
+
 public class GeneratorServiceImpl extends GeneratorServiceGrpc.GeneratorServiceImplBase {
     @Override
     public void generate(QRRequest req, StreamObserver<QRResponse> responseObserver) {
