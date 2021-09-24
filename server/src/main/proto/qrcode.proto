@@ -1,12 +1,11 @@
 syntax = "proto3";
 
-package qrcode;
+package qrgen;
 
-option java_package = "com.github.milgradesec.qrgen.protos";
-
-service Generator {
-    rpc Generate (QRRequest) returns (QRResponse) {}
-}
+option java_multiple_files = true;
+option java_package = "com.github.milgradesec.qrgen.grpc";
+option java_outer_classname = "QRGenProto";
+option objc_class_prefix = "HLW";
 
 message QRRequest {
     string data = 1;
@@ -15,4 +14,8 @@ message QRRequest {
 
 message QRResponse {
     string status = 1;
+}
+
+service GeneratorService {
+    rpc Generate (QRRequest) returns (QRResponse) {}
 }
