@@ -2,6 +2,7 @@ package com.github.milgradesec.qrgen.grpc;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
+import java.io.IOException;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
