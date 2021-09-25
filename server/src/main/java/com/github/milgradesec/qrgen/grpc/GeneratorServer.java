@@ -8,6 +8,7 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 public class GeneratorServer {
+
     private static final Logger logger = Logger.getLogger(GeneratorServer.class.getName());
 
     private final int port;
