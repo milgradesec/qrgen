@@ -2,7 +2,7 @@ package com.github.milgradesec.qrgen.grpc;
 
 import io.grpc.stub.StreamObserver;
 
-public class GeneratorServiceImpl extends GeneratorServiceGrpc.GeneratorServiceImplBase {
+public static class GeneratorService extends GeneratorServiceGrpc.GeneratorServiceImplBase {
     @Override
     public void generate(QRRequest req, StreamObserver<QRResponse> responseObserver) {
         QRResponse resp = QRResponse.newBuilder().setStatus("OK").build();
