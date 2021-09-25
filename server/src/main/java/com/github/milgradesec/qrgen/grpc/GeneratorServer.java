@@ -16,7 +16,7 @@ public class GeneratorServer {
         this.port = port;
     }
 
-    public void start() {
+    public void start() throws IOException {
         server = ServerBuilder.forPort(port).addService(new GeneratorService()).build().start();
         logger.info("gRPC GeneratorServer started.");
     }
