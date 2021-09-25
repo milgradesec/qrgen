@@ -24,7 +24,6 @@ dependencies {
 
     runtimeOnly 'io.grpc:grpc-netty-shaded:1.41.0'
 
-	
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
