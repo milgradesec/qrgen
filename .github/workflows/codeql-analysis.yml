@@ -34,7 +34,7 @@ jobs:
           java-version: 17
 
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
