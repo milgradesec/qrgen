@@ -17,7 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'com.google.zxing:core:3.4.1'
-    implementation 'com.google.protobuf:protobuf-java:3.18.0'
+    implementation 'com.google.protobuf:protobuf-java:3.18.1'
     implementation 'io.grpc:grpc-protobuf:1.41.0'
     implementation 'io.grpc:grpc-stub:1.41.0'
     implementation 'io.grpc:grpc-services:1.41.0'
