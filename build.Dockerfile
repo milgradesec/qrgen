@@ -1,4 +1,4 @@
-FROM --platform=amd64 gradle:jdk16 AS builder
+FROM --platform=amd64 gradle:jdk17 AS builder
 
 WORKDIR /home/gradle/src
 COPY --chown=gradle:gradle . /home/gradle/src
