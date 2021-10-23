@@ -2,7 +2,6 @@ plugins {
     id 'application'
     id 'org.springframework.boot' version '2.5.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'com.google.protobuf' version '0.8.17'
 }
 
 application {
@@ -17,46 +16,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'com.google.zxing:core:3.4.1'
-    implementation 'com.google.protobuf:protobuf-java:3.19.0'
-    implementation 'io.grpc:grpc-protobuf:1.41.0'
-    implementation 'io.grpc:grpc-stub:1.41.0'
-    implementation 'io.grpc:grpc-services:1.41.0'
-
-    runtimeOnly 'io.grpc:grpc-netty-shaded:1.41.0'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-}
-
-protobuf {
-    protoc {
-        artifact = 'com.google.protobuf:protoc:3.19.0'
-    }
-    plugins {
-        // Optional: an artifact spec for a protoc plugin, with "grpc" as
-        // the identifier, which can be referred to in the "plugins"
-        // container of the "generateProtoTasks" closure.
-        grpc {
-            artifact = 'io.grpc:protoc-gen-grpc-java:1.41.0'
-        }
-    }
-    generateProtoTasks {
-        ofSourceSet('main')*.plugins {
-            // Apply the "grpc" plugin whose spec is defined above, without
-            // options.  Note the braces cannot be omitted, otherwise the
-            // plugin will not be added. This is because of the implicit way
-            // NamedDomainObjectContainer binds the methods.
-            grpc { }
-        }
-    }
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs 'build/generated/source/proto/main/grpc'
-            srcDirs 'build/generated/source/proto/main/java'
-        }
     }
 }
