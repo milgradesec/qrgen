@@ -18,11 +18,12 @@ docker pull ghcr.io/milgradesec/qrgen:latest
 ```
 
 Example `docker-compose.yaml`
+
 ```yaml
 version: "3.8"
 
 services:
-  server:
+  qrgen:
     image: ghcr.io/milgradesec/qrgen:latest
     read_only: true
     ports:
