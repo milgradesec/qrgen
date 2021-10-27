@@ -5,15 +5,15 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/milgradesec/qrgen)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/milgradesec/qrgen/blob/master/LICENSE)
 
-`qrgen` is a Java QR generator microservice.
+**qrgen** is a Java QR generator microservice.
 
 🚀 Running at `https://qrcode.paesa.es/qr`
 
-## 🐳 Docker
+## Install
 
-Get docker image:
+🐳 Get Docker image:
 
-```cmd
+```shell
 docker pull ghcr.io/milgradesec/qrgen:latest
 ```
 
