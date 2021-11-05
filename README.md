@@ -9,7 +9,7 @@
 
 🚀 Running at **<https://qrcode.paesa.es/qr>**
 
-## Install
+## Install `qrgen`
 
 🐳 Get Docker image:
 
@@ -39,3 +39,7 @@ services:
           cpus: "1"
           memory: 256M
 ```
+
+## License
+
+Apache License 2.0
