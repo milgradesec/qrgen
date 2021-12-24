@@ -5,7 +5,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 
 RUN gradle build --no-daemon
 
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:17-jre
 
 RUN adduser --system --no-create-home spring
 
