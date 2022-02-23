@@ -7,8 +7,6 @@
 
 `qrgen` is a Java QR generator microservice.
 
-🚀 Running at **<https://qrcode.paesa.es/qr>**
-
 ## Install `qrgen`
 
 🐳 Get Docker image:
