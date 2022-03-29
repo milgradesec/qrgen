@@ -1,0 +1,20 @@
+name: Snyk
+on: push
+
+jobs:
+  security:
+    name: Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/gradle@master
+        with:
+          args: --file=server/build.gradle
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
