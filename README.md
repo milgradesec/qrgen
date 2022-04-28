@@ -36,6 +36,8 @@ services:
         limits:
           cpus: "1"
           memory: 256M
+      restart_policy:
+        condition: any
 ```
 
 ## License
