@@ -1,10 +1,6 @@
-FROM eclipse-temurin:17-jre
-
-RUN adduser --system --no-create-home spring
+FROM gcr.io/distroless/java17-debian11
 
 ADD build/libs/server.jar qrgen-server.jar
 
 EXPOSE 8080
-
-USER spring
 ENTRYPOINT ["java", "-jar", "qrgen-server.jar"]
