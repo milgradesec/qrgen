@@ -1,7 +1,6 @@
 # qrgen
 
 [![CI](https://github.com/milgradesec/qrgen/actions/workflows/java-ci.yml/badge.svg)](https://github.com/milgradesec/qrgen/actions/workflows/java-ci.yml)
-[![Docker CI](https://github.com/milgradesec/qrgen/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/milgradesec/qrgen/actions/workflows/docker-ci.yml)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/milgradesec/qrgen)
 ![GitHub](https://img.shields.io/github/license/milgradesec/nbot)
 
