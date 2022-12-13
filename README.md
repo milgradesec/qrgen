@@ -4,7 +4,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/milgradesec/qrgen)
 ![GitHub](https://img.shields.io/github/license/milgradesec/nbot)
 
-`qrgen` is a Java QR generator microservice.
+`qrgen` is a very simple Java QR generator microservice.
 
 ## Install `qrgen`
 
