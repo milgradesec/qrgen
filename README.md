@@ -14,22 +14,14 @@
 docker pull ghcr.io/milgradesec/qrgen:latest
 ```
 
-Example `docker-compose.yaml`
+Example `compose.yaml`
 
 ```yaml
-version: "3.8"
-
 services:
   qrgen:
     image: ghcr.io/milgradesec/qrgen:latest
-    read_only: true
     ports:
-      - 8080/tcp
-    volumes:
-      - type: tmpfs
-        target: /tmp
-    cap_drop:
-      - ALL
+      - 8080:8080/tcp
     deploy:
       resources:
         limits:
